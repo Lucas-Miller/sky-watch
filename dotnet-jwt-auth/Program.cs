@@ -4,6 +4,7 @@
 // this is the starting point
 
 using WebApi.Helpers;
+using WebApi.Authorization;
 using WebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
