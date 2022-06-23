@@ -1,24 +1,19 @@
 // Definition of the data that should be returned from a successful authentication;
 
-namespace WebApi.Models;
+namespace WebApi.Models.Accounts;
 
-using WebApi.Entities;
-
-public class AuthenticateResponse
+public class AccountResponse
 {
     public int Id { get; set; }
+    public string Title { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public string UserName { get; set; }
-    public string Token { get; set; }
-
-    public AuthenticateResponse(User user, string token)
-    {
-        Id= user.Id;
-        FirstName = user.FirstName;
-        LastName = user.LastName;
-        UserName = user.Username;
-        Token = token; 
-    }
+    public string Email { get; set; }
+    public string Role { get; set; }
+    public DateTime Created { get; set; }
+    public DateTime? Updated {get; set; }
+    public bool IsVerified { get; set; }
 }
+
+
 
