@@ -1,3 +1,4 @@
+// Represents the data for a refresh token within the application
 namespace WebApi.Entities;
 
 using Microsoft.EntityFrameworkCore;

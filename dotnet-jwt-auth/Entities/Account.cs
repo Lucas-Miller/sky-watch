@@ -1,3 +1,4 @@
+// The account entity represents the data for any account in the application.
 namespace WebApi.Entities;
 
 public class Account
