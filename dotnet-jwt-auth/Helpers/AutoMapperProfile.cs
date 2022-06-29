@@ -19,7 +19,7 @@ public class AutoMapperProfile : Profile
         
         CreateMap<CreateRequest, Account>();
 
-        CreateMap<UpdateRequest, Account>();
+        CreateMap<UpdateRequest, Account>()
             .ForAllMembers(x => x.Condition(
                 (src, dest, prop) =>
                 {
