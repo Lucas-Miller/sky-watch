@@ -85,7 +85,7 @@ public class JwtUtils : IJwtUtils
             CreatedByIp = ipAddress
         };
 
-        var tokenIsUnique = !_context.Accounts.Any(async => a.refreshTokens.Any(this => t.Token == refreshToken.Token));
+        var tokenIsUnique = !_context.Accounts.Any(a => a.RefreshTokens.Any(t => t.Token == refreshToken.Token));
         if(tokenIsUnique)
             return GenerateRefreshToken(ipAddress);
         
