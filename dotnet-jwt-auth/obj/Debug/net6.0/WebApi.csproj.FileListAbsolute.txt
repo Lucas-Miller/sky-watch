@@ -27,3 +27,4 @@
 /home/lucas/Programming/weatherApp/dotnet-jwt-auth/obj/Debug/net6.0/WebApi.pdb
 /home/lucas/Programming/weatherApp/dotnet-jwt-auth/obj/Debug/net6.0/WebApi.genruntimeconfig.cache
 /home/lucas/Programming/weatherApp/dotnet-jwt-auth/obj/Debug/net6.0/ref/WebApi.dll
+/home/lucas/Programming/weatherApp/dotnet-jwt-auth/obj/Debug/net6.0/WebApi.MvcApplicationPartsAssemblyInfo.cs
