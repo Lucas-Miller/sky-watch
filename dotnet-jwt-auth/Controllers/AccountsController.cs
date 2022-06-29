@@ -47,7 +47,7 @@ public class AccountsController : BaseController
     [HttpPost("revoke-token")]
     public IActionResult RevokeToken(RevokeTokenRequest model)
     {
-        var token = model.Token ?? RequestDelegate.Cookies["refreshToken"];
+        var token = model.Token ?? Request.Cookies["refreshToken"];
 
         if(string.IsNullOrEmpty(token))
             return BadRequest(new { message = "Token is required" });
