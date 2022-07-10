@@ -3,19 +3,27 @@
 // of the index.html file
 
 import React from 'react';
+import { Router } from 'react-router-dom';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
 
-import { store } from './_helpers';
-import { App } from './App';
+import { history } from './_helpers';
+import { accountService } from './_services';
+import { App } from './app';
 
-// This is for the fake backend for testing.
-//import { configureFakeBackend } from './_helpers';
-//configureFakeBackend();
+import './styles.less';
 
-render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    document.getElementById('app')
-);
+// setup fake backend
+import { configureFakeBackend } from './_helpers';
+configureFakeBackend();
+
+// attempt silent token refresh before startup
+accountService.refreshToken().finally(startApp);
+
+function startApp() { 
+    render(
+        <Router history={history}>
+            <App />
+        </Router>,
+        document.getElementById('app')
+    );
+}
