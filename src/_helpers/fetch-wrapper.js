@@ -8,7 +8,7 @@ export const fetchWrapper = {
     get,
     post,
     put,
-    delete: _delete // Delete is a keyword in JS so it is prefixed with an underscore.
+    delete: _delete
 }
 
 function get(url) {
@@ -22,27 +22,40 @@ function get(url) {
 function post(url, body) {
     const requestOptions = {
         method: 'POST',
-        headers: {'Content-Type': 'application/json', ...authHeader(url) },
+        headers: { 'Content-Type': 'application/json', ...authHeader(url) },
         credentials: 'include',
         body: JSON.stringify(body)
     };
     return fetch(url, requestOptions).then(handleResponse);
 }
 
+function put(url, body) {
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', ...authHeader(url) },
+        body: JSON.stringify(body)
+    };
+    return fetch(url, requestOptions).then(handleResponse);    
+}
+
+// prefixed with underscored because delete is a reserved word in javascript
 function _delete(url) {
     const requestOptions = {
         method: 'DELETE',
         headers: authHeader(url)
     };
-    return fetch(url,requestOptions).then(handleResponse);
+    return fetch(url, requestOptions).then(handleResponse);
 }
 
+// helper functions
+
 function authHeader(url) {
+    // return auth header with jwt if user is logged in and request is to the api url
     const user = accountService.userValue;
     const isLoggedIn = user && user.jwtToken;
     const isApiUrl = url.startsWith(config.apiUrl);
-    if(isLoggedIn && isApiUrl) {
-        return { Authorization: 'Bearer ${user.jwtToken}' };
+    if (isLoggedIn && isApiUrl) {
+        return { Authorization: `Bearer ${user.jwtToken}` };
     } else {
         return {};
     }

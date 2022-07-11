@@ -1,13 +1,13 @@
 // Account service handles all interactions between the React web app
 // and the backend C# API with anything related to accounts.
 
-import { BehaviourSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 import config from 'config';
-import { fetchWrapper } from '@/_helpers';
+import { fetchWrapper, history } from '@/_helpers';
 
-const userSubject = new BehaviourSubject(null);
-const baseUrl = '${config.apiUrl}/accounts';
+const userSubject = new BehaviorSubject(null);
+const baseUrl = `${config.apiUrl}/accounts`;
 
 export const accountService = {
     login,
@@ -28,8 +28,9 @@ export const accountService = {
 };
 
 function login(email, password) {
-    return fetchWrapper.post('${baseUrl}/authenticate', {email, password })
+    return fetchWrapper.post(`${baseUrl}/authenticate`, { email, password })
         .then(user => {
+            // publish user to subscribers and start timer to refresh token
             userSubject.next(user);
             startRefreshTokenTimer();
             return user;
@@ -37,8 +38,17 @@ function login(email, password) {
 }
 
 function logout() {
-    fetchWrapper.post('${baseUrl}/refresh-token', {})
+    // revoke token, stop refresh timer, publish null to user subscribers and redirect to login page
+    fetchWrapper.post(`${baseUrl}/revoke-token`, {});
+    stopRefreshTokenTimer();
+    userSubject.next(null);
+    history.push('/account/login');
+}
+
+function refreshToken() {
+    return fetchWrapper.post(`${baseUrl}/refresh-token`, {})
         .then(user => {
+            // publish user to subscribers and start timer to refresh token
             userSubject.next(user);
             startRefreshTokenTimer();
             return user;

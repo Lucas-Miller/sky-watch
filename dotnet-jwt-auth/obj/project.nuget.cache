@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hxLXaWtv6aUg9waHs7ukm9NOTNhNZwGy/O7AprU8AOA3GROaN34SmX0AGGNMAiy5Zp8Y16AYg3AfTNOW2T+qLA==",
+  "dgSpecHash": "+aiOt5ah6iLCmzKE4YKy4o08w6ZotfaChQORMjydJ8hOn9oAlFXyAnsSduJFTB4PrOozwCI8gNtcVOavBtvmEg==",
   "success": true,
   "projectFilePath": "/home/lucas/Programming/weatherApp/dotnet-jwt-auth/WebApi.csproj",
   "expectedPackageFiles": [

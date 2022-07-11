@@ -3,20 +3,21 @@
 // Displayed when a user is logged in. A special nav is displayed
 // For users who are admins.
 
-import React, { userState, userEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, Route } from 'react-router-dom';
 
 import { Role } from '@/_helpers';
 import { accountService } from '@/_services';
 
 function Nav() {
-    const [user, setUser] = userState({});
+    const [user, setUser] = useState({});
 
-    userEffect(() => {
+    useEffect(() => {
         const subscription = accountService.user.subscribe(x => setUser(x));
         return subscription.unsubscribe;
     }, []);
 
+    // only show nav when logged in
     if (!user) return null;
 
     return (
@@ -48,5 +49,5 @@ function AdminNav({ match }) {
     );
 }
 
-export { Nav };
+export { Nav }; 
 
