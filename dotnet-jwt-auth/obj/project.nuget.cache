@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+aiOt5ah6iLCmzKE4YKy4o08w6ZotfaChQORMjydJ8hOn9oAlFXyAnsSduJFTB4PrOozwCI8gNtcVOavBtvmEg==",
+  "dgSpecHash": "DZCumfDFKF+15BdITBY5uokKceFLf2wiuhYHRzmWcyPdAQn6bAF9V4h5ino22liIyKWYd9rJHRfZ8jtnEYWnpA==",
   "success": true,
   "projectFilePath": "/home/lucas/Programming/weatherApp/dotnet-jwt-auth/WebApi.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,7 @@
     "/home/lucas/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/11.0.0/automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "/home/lucas/.nuget/packages/bcrypt.net-next/4.0.2/bcrypt.net-next.4.0.2.nupkg.sha512",
     "/home/lucas/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
-    "/home/lucas/.nuget/packages/mailkit/3.1.1/mailkit.3.1.1.nupkg.sha512",
+    "/home/lucas/.nuget/packages/mailkit/3.3.0/mailkit.3.3.0.nupkg.sha512",
     "/home/lucas/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/6.0.2/microsoft.aspnetcore.authentication.jwtbearer.6.0.2.nupkg.sha512",
     "/home/lucas/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/home/lucas/.nuget/packages/microsoft.data.sqlite.core/6.0.2/microsoft.data.sqlite.core.6.0.2.nupkg.sha512",
@@ -36,7 +36,8 @@
     "/home/lucas/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/6.10.0/microsoft.identitymodel.protocols.openidconnect.6.10.0.nupkg.sha512",
     "/home/lucas/.nuget/packages/microsoft.identitymodel.tokens/6.16.0/microsoft.identitymodel.tokens.6.16.0.nupkg.sha512",
     "/home/lucas/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
-    "/home/lucas/.nuget/packages/mimekit/3.1.1/mimekit.3.1.1.nupkg.sha512",
+    "/home/lucas/.nuget/packages/mimekit/3.3.0/mimekit.3.3.0.nupkg.sha512",
+    "/home/lucas/.nuget/packages/netcore.mailkit/2.1.0/netcore.mailkit.2.1.0.nupkg.sha512",
     "/home/lucas/.nuget/packages/portable.bouncycastle/1.9.0/portable.bouncycastle.1.9.0.nupkg.sha512",
     "/home/lucas/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.0.6/sqlitepclraw.bundle_e_sqlite3.2.0.6.nupkg.sha512",
     "/home/lucas/.nuget/packages/sqlitepclraw.core/2.0.6/sqlitepclraw.core.2.0.6.nupkg.sha512",

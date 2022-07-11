@@ -32,7 +32,7 @@ public class EmailService : IEmailService
 
         // send email
         using var smtp = new SmtpClient();
-        smtp.Connect(_appSettings.SmtpHost, int.Parse(_appSettings.SmtpPort), SecureSocketOptions.StartTls);
+        smtp.Connect(_appSettings.SmtpHost, 587, SecureSocketOptions.StartTls);
         smtp.Authenticate(_appSettings.SmtpUser, _appSettings.SmtpPass);
         smtp.Send(email);
         smtp.Disconnect(true);

@@ -13,8 +13,8 @@ import { App } from './app';
 import './styles.less';
 
 // setup fake backend
-import { configureFakeBackend } from './_helpers';
-configureFakeBackend();
+//import { configureFakeBackend } from './_helpers';
+//configureFakeBackend();
 
 // attempt silent token refresh before startup
 accountService.refreshToken().finally(startApp);
