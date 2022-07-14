@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DZCumfDFKF+15BdITBY5uokKceFLf2wiuhYHRzmWcyPdAQn6bAF9V4h5ino22liIyKWYd9rJHRfZ8jtnEYWnpA==",
+  "dgSpecHash": "b1SEh8GSq9SicUqz4sH9hh5dkdE0nz4qg1jzq04KiQhVqADiOuRd1Kr+uItmKMfA5qWxpldR6nbJalixSJvjqA==",
   "success": true,
-  "projectFilePath": "/home/lucas/Programming/weatherApp/dotnet-jwt-auth/WebApi.csproj",
+  "projectFilePath": "/home/lucas/Programming/sky-watch/dotnet-jwt-auth/WebApi.csproj",
   "expectedPackageFiles": [
     "/home/lucas/.nuget/packages/automapper/11.0.1/automapper.11.0.1.nupkg.sha512",
     "/home/lucas/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/11.0.0/automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

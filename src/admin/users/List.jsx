@@ -41,7 +41,7 @@ function List({ match }) {
                 <tbody>
                     {users && users.map(user =>
                         <tr key={user.id}>
-                            <td>{user.title} {user.firstName} {user.lastName}</td>
+                            <td>{user.firstName} {user.lastName}</td>
                             <td>{user.email}</td>
                             <td>{user.role}</td>
                             <td style={{ whiteSpace: 'nowrap' }}>

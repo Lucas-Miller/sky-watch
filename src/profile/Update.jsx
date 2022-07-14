@@ -11,7 +11,6 @@ import { accountService, alertService } from '@/_services';
 function Update({ history }) {
     const user = accountService.userValue;
     const initialValues = {
-        title: user.title,
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
@@ -20,8 +19,6 @@ function Update({ history }) {
     };
 
     const validationSchema = Yup.object().shape({
-        title: Yup.string()
-            .required('Title is required'),
         firstName: Yup.string()
             .required('First Name is required'),
         lastName: Yup.string()
@@ -66,17 +63,6 @@ function Update({ history }) {
                 <Form>
                     <h1>Update Profile</h1>
                     <div className="form-row">
-                        <div className="form-group col">
-                            <label>Title</label>
-                            <Field name="title" as="select" className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')}>
-                                <option value=""></option>
-                                <option value="Mr">Mr</option>
-                                <option value="Mrs">Mrs</option>
-                                <option value="Miss">Miss</option>
-                                <option value="Ms">Ms</option>
-                            </Field>
-                            <ErrorMessage name="title" component="div" className="invalid-feedback" />
-                        </div>
                         <div className="form-group col-5">
                             <label>First Name</label>
                             <Field name="firstName" type="text" className={'form-control' + (errors.firstName && touched.firstName ? ' is-invalid' : '')} />

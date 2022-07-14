@@ -2041,11 +2041,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/lucas/Programming/weatherApp/dotnet-jwt-auth/WebApi.csproj",
+      "projectUniqueName": "/home/lucas/Programming/sky-watch/dotnet-jwt-auth/WebApi.csproj",
       "projectName": "WebApi",
-      "projectPath": "/home/lucas/Programming/weatherApp/dotnet-jwt-auth/WebApi.csproj",
+      "projectPath": "/home/lucas/Programming/sky-watch/dotnet-jwt-auth/WebApi.csproj",
       "packagesPath": "/home/lucas/.nuget/packages/",
-      "outputPath": "/home/lucas/Programming/weatherApp/dotnet-jwt-auth/obj/",
+      "outputPath": "/home/lucas/Programming/sky-watch/dotnet-jwt-auth/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/lucas/.nuget/NuGet/NuGet.Config"

@@ -11,7 +11,6 @@ import { accountService, alertService } from '@/_services';
 
 function Register({ history }) {
     const initialValues = {
-        title: '',
         firstName: '',
         lastName: '',
         email: '',
@@ -21,8 +20,6 @@ function Register({ history }) {
     };
 
     const validationSchema = Yup.object().shape({
-        title: Yup.string()
-            .required('Title is required'),
         firstName: Yup.string()
             .required('First Name is required'),
         lastName: Yup.string()
@@ -60,17 +57,6 @@ function Register({ history }) {
                     <h3 className="card-header">Register</h3>
                     <div className="card-body">
                         <div className="form-row">
-                            <div className="form-group col">
-                                <label>Title</label>
-                                <Field name="title" as="select" className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')}>
-                                    <option value=""></option>
-                                    <option value="Mr">Mr</option>
-                                    <option value="Mrs">Mrs</option>
-                                    <option value="Miss">Miss</option>
-                                    <option value="Ms">Ms</option>
-                                </Field>
-                                <ErrorMessage name="title" component="div" className="invalid-feedback" />
-                            </div>
                             <div className="form-group col-5">
                                 <label>First Name</label>
                                 <Field name="firstName" type="text" className={'form-control' + (errors.firstName && touched.firstName ? ' is-invalid' : '')} />
