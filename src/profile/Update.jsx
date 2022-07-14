@@ -13,6 +13,7 @@ function Update({ history }) {
     const initialValues = {
         firstName: user.firstName,
         lastName: user.lastName,
+        locationNames: user.locationNames,
         email: user.email,
         password: '',
         confirmPassword: ''
@@ -23,6 +24,7 @@ function Update({ history }) {
             .required('First Name is required'),
         lastName: Yup.string()
             .required('Last Name is required'),
+        locationNames: Yup.string(),
         email: Yup.string()
             .email('Email is invalid')
             .required('Email is required'),
@@ -72,6 +74,13 @@ function Update({ history }) {
                             <label>Last Name</label>
                             <Field name="lastName" type="text" className={'form-control' + (errors.lastName && touched.lastName ? ' is-invalid' : '')} />
                             <ErrorMessage name="lastName" component="div" className="invalid-feedback" />
+                        </div>
+                    </div>
+                    <div className="form-row">
+                        <div className="form-group col-5">
+                            <label>Location Name</label>
+                            <Field name="locationNames" type="text" className={'form-control' + (errors.locationNames && touched.locationNames ? ' is-invalid' : '')} />
+                            <ErrorMessage name="locationNames" component="div" className="invalid-feedback" />
                         </div>
                     </div>
                     <div className="form-group">

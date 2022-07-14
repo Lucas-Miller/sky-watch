@@ -12,6 +12,7 @@ public class RegisterRequest
 
     [Required]
     public string LastName { get; set; }
+    public string LocationNames { get; set; }
 
     [Required]
     [EmailAddress]
