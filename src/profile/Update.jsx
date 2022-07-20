@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, FieldArray, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 import { accountService, alertService } from '@/_services';
@@ -16,7 +16,9 @@ function Update({ history }) {
         locationNames: user.locationNames,
         email: user.email,
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        numberOfLocations: '',
+        locations: []
     };
 
     const validationSchema = Yup.object().shape({
@@ -59,9 +61,29 @@ function Update({ history }) {
         }
     }
 
+    function onChangeLocations(e, field, values, setValues) {
+        // update dynamic form
+        const locations = [...values.locations];
+        const numberOflocations = e.target.value || 0;
+        const previousNumber = parseInt(field.value || '0');
+        if (previousNumber < numberOflocations) {
+            for (let i = previousNumber; i < numberOflocations; i++) {
+                locations.push({ name: '', email: '' });
+            }
+        } else {
+            for (let i = previousNumber; i >= numberOflocations; i--) {
+                locations.splice(i, 1);
+            }
+        }
+        setValues({ ...values, locations });
+
+        // call formik onChange method
+        field.onChange(e);
+    }
+
     return (
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-            {({ errors, touched, isSubmitting }) => (
+            {({ errors, values, touched, setValues, isSubmitting }) => (
                 <Form>
                     <h1>Update Profile</h1>
                     <div className="form-row">
@@ -76,6 +98,56 @@ function Update({ history }) {
                             <ErrorMessage name="lastName" component="div" className="invalid-feedback" />
                         </div>
                     </div>
+
+
+                    <div className="form-row">
+                                <div className="form-group">
+                                    <label>Number of Locations</label>
+                                    <Field name="numberOfLocations">
+                                    {({ field }) => (
+                                        <select {...field} className={'form-control' + (errors.numberOfLocations && touched.numberOfLocations ? ' is-invalid' : '')} onChange={e => onChangeLocations(e, field, values, setValues)}>
+                                            <option value=""></option>
+                                            {[1,2,3,4,5,6,7,8,9,10].map(i => 
+                                                <option key={i} value={i}>{i}</option>
+                                            )}
+                                        </select>
+                                    )}
+                                    </Field>
+                                    <ErrorMessage name="numberOfLocations" component="div" className="invalid-feedback" />
+                                </div>
+                            </div>
+                    
+
+
+
+                        <FieldArray name="locations">
+                        {() => (values.locations.map((location, i) => {
+                            const locationErrors = errors.locations?.length && errors.locations[i] || {};
+                            const locationTouched = touched.locations?.length && touched.locations[i] || {};
+                            return (
+                                <div key={i} className="list-group list-group-flush">
+                                    <div className="list-group-item">
+                                        <h5 className="card-title">Location {i + 1}</h5>
+                                        <div className="form-row">
+                                            <div className="form-group col-6">
+                                                <label>Name</label>
+                                                <Field name={`locations.${i}.name`} type="text" className={'form-control' + (locationErrors.name && locationTouched.name ? ' is-invalid' : '' )} />
+                                                <ErrorMessage name={`locations.${i}.name`} component="div" className="invalid-feedback" />
+                                            </div>
+                                            <div className="form-group col-6">
+                                                <label>Address</label>
+                                                <Field name={`locations.${i}.address`} type="text" className={'form-control' + (locationErrors.address && locationTouched.address ? ' is-invalid' : '' )} />
+                                                <ErrorMessage name={`locations.${i}.address`} component="div" className="invalid-feedback" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        }))}
+                        </FieldArray>
+                    
+
+
                     <div className="form-row">
                         <div className="form-group col-5">
                             <label>Location Name</label>
