@@ -17,8 +17,9 @@ function Update({ history }) {
         email: user.email,
         password: '',
         confirmPassword: '',
-        numberOfLocations: '',
-        locations: []
+        numberOfLocations: user.numberOfLocations,
+        //locations: []
+        //console.log(user.numberOfLocations),
     };
 
     const validationSchema = Yup.object().shape({
@@ -61,6 +62,7 @@ function Update({ history }) {
         }
     }
 
+    
     function onChangeLocations(e, field, values, setValues) {
         // update dynamic form
         const locations = [...values.locations];
@@ -80,11 +82,18 @@ function Update({ history }) {
         // call formik onChange method
         field.onChange(e);
     }
+    // Add this to the formik field
+    //onChange={e => onChangeLocations(e, field, values, setValues)}
+    
+    
 
     return (
-        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+        
+
+        <Formik enableReinitialize initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
             {({ errors, values, touched, setValues, isSubmitting }) => (
                 <Form>
+                    
                     <h1>Update Profile</h1>
                     <div className="form-row">
                         <div className="form-group col-5">
@@ -105,7 +114,7 @@ function Update({ history }) {
                                     <label>Number of Locations</label>
                                     <Field name="numberOfLocations">
                                     {({ field }) => (
-                                        <select {...field} className={'form-control' + (errors.numberOfLocations && touched.numberOfLocations ? ' is-invalid' : '')} onChange={e => onChangeLocations(e, field, values, setValues)}>
+                                        <select {...field} className={'form-control' + (errors.numberOfLocations && touched.numberOfLocations ? ' is-invalid' : '')} >
                                             <option value=""></option>
                                             {[1,2,3,4,5,6,7,8,9,10].map(i => 
                                                 <option key={i} value={i}>{i}</option>
@@ -119,7 +128,7 @@ function Update({ history }) {
                     
 
 
-
+                        {/*                             
                         <FieldArray name="locations">
                         {() => (values.locations.map((location, i) => {
                             const locationErrors = errors.locations?.length && errors.locations[i] || {};
@@ -145,6 +154,7 @@ function Update({ history }) {
                             );
                         }))}
                         </FieldArray>
+                    */}
                     
 
 

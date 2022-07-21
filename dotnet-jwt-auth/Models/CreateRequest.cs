@@ -13,6 +13,7 @@ public class CreateRequest
     [Required]
     public string LastName { get; set; }
     public string LocationNames { get; set; }
+    public int numberOfLocations { get; set; }
 
     [Required]
     [EnumDataType(typeof(Role))]

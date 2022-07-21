@@ -11,7 +11,7 @@ using WebApi.Helpers;
 namespace WebApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220711050837_InitialCreate")]
+    [Migration("20220721171536_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,6 +40,9 @@ namespace WebApi.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("LocationNames")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("PasswordHash")
                         .HasColumnType("TEXT");
 
@@ -55,9 +58,6 @@ namespace WebApi.Migrations
                     b.Property<int>("Role")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Title")
-                        .HasColumnType("TEXT");
-
                     b.Property<DateTime?>("Updated")
                         .HasColumnType("TEXT");
 
@@ -66,6 +66,9 @@ namespace WebApi.Migrations
 
                     b.Property<DateTime?>("Verified")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("numberOfLocations")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 

@@ -16,6 +16,7 @@ public class User
     public string FirstName {get; set;}
     public string LastName {get; set;}
     public string Username {get; set;}
+    public int numberOfLocations { get; set; }
 
     [JsonIgnore]                       // The Json ignore attribute prevents a password from being 
     public string Password {get; set;} // serialized/returned in API responses.

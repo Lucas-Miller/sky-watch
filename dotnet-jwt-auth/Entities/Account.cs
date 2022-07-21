@@ -7,6 +7,7 @@ public class Account
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string LocationNames { get; set; }
+    public int numberOfLocations { get; set; }
     public string Email { get; set; }
     public string PasswordHash { get; set; }
     public bool AcceptTerms { get; set; }

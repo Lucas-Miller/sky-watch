@@ -12,7 +12,9 @@ public class UpdateRequest
     
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public string LocationNames { get; set; }
+    public int numberOfLocations { get; set; }
+    public string locationNames { get; set; }
+    public string locations {get; set; }
 
     [EnumDataType(typeof(Role))]
     public string Role

@@ -65,6 +65,9 @@ namespace WebApi.Migrations
                     b.Property<DateTime?>("Verified")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("numberOfLocations")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.ToTable("Accounts");
